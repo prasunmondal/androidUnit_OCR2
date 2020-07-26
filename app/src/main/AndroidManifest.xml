@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.google.android.gms.samples.vision.ocrreader"
-    android:installLocation="auto" >
+    android:installLocation="auto">
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -12,15 +13,13 @@
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
         android:label="MultiTrackerApp"
-        android:supportsRtl = "true"
-        android:theme="@style/Theme.AppCompat" >
-        <meta-data
-            android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="ocr" />
-
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat">
         <activity
-            android:name="com.google.android.gms.samples.vision.ocrreader.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".OCRPack.WelcomeScreen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_welcome_screen"
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +27,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.google.android.gms.samples.vision.ocrreader.OCRPack.OcrCaptureActivity"
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OCRPack.OcrCaptureActivity"
             android:label="Read Text" />
     </application>
 
